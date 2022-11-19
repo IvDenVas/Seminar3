@@ -2,11 +2,22 @@
 // причём X ≠ 0 и Y ≠ 0 и выдаёт номер четверти плоскости, в которой находится эта точка.
 
 Console.Clear();
-Console.Write("Введите X: ");
-int X = int.Parse(Console.ReadLine() ?? "");
+int X, Y;
 
-Console.Write("Введите Y: ");
-int Y = int.Parse(Console.ReadLine());
+try
+{
+    Console.Write("Введите X: ");
+    X = int.Parse(Console.ReadLine() ?? "");
+
+    Console.Write("Введите Y: ");
+    Y = int.Parse(Console.ReadLine()?? "");
+}
+catch(Exception exc)
+{
+    Console.WriteLine("Ошибка ввода данных!  {exc.Message}");
+    return;
+}
+
 if (X > 0 && Y > 0)
     Console.Write("1");
 else if (X < 0 && Y > 0)
